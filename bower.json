@@ -1,0 +1,24 @@
+{
+  "name": "IDBWrapper",
+  "main": "IDBWrapper.js",
+  "authors": [
+    "dimabresky <dimabresky@gmail.com>"
+  ],
+  "description": "wrapper of indexedDB API",
+  "keywords": [
+    "indexedDB",
+    "javascript database"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "qunit": "^2.4.0"
+  }
+}
