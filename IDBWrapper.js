@@ -204,7 +204,7 @@
                 throw new Error('The name of the repository is not specified when you try to connect to the repository');
             }
 
-            if (!this.transaction) {
+            if (typeof this.transaction !== 'IDBTransaction') {
 
                 this.transaction = this.db.transaction(this.db.objectStoreNames, 'readwrite');
             }
