@@ -139,7 +139,7 @@ window.IDBWrapper = function (DBNAME, DBVERSION, onUpgradeNeeded) {
 
             if (Array.isArray(storeData.fields)) {
 
-                storeData.fields.push({name: 'id', uniq: true});
+                storeData.fields.unshift({name: 'id', uniq: true});
 
                 for (i = 0; i < storeData.fields.length; i = i + 1) {
 
