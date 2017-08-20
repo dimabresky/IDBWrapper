@@ -175,12 +175,11 @@ window.IDBWrapper = function (DBNAME, DBVERSION, onUpgradeNeeded) {
     */
     this.getStoresList = function () {
 
-        var list = [], store;
-        for (store in this.db.objectStoreNames) {
+        var list = [], i;
 
-            if (this.db.objectStoreNames.hasOwnProperty(store)) {
-                list.push(store);
-            }
+        for (i = 0; i < this.db.objectStoreNames.length; i = i + 1) {
+
+            list.push(this.db.objectStoreNames[i]);
         }
         return list;
     };
