@@ -128,6 +128,28 @@
             assert.ok( true, "выполнен" );
         });
 
+        currentTestName = "Получение списка хранилищ (test и test2)";
+
+        return new Promise(function (resolve, reject) {
+
+            var stores = DB.getStoresList();
+            
+            if (stores.indexOf('test') !== -1 && stores.indexOf('test2') !== -1) {
+
+                return resolve(true);
+            } else {
+
+                return reject('Упс... Что - то потерялось');
+            }
+
+        });
+
+    }).then(function () {
+
+        QUnit.test( currentTestName, function( assert ) {
+            assert.ok( true, "выполнен" );
+        });
+
         currentTestName = "Удаление хранилищ test и test2";
 
         return DB.reconnect(function () {
