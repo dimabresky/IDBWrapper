@@ -11,13 +11,13 @@
         this.createStore({
             name: 'test',
             fields: [{
-                name: 'name',
+                code: 'name',
                 uniq: false
             }, {
-                name: 'last_name',
+                code: 'last_name',
                 uniq: false
             }, {
-                name: 'email',
+                code: 'email',
                 uniq: true
             }]
         });
@@ -39,10 +39,10 @@
             this.createStore({
                 name: 'test2',
                 fields: [{
-                    name: 'country',
+                    code: 'country',
                     uniq: false
                 }, {
-                    name: 'city',
+                    code: 'city',
                     uniq: false
                 }]
             });
@@ -133,7 +133,7 @@
         return new Promise(function (resolve, reject) {
 
             var stores = DB.getStoresList();
-            
+
             if (stores.indexOf('test') !== -1 && stores.indexOf('test2') !== -1) {
 
                 return resolve(true);

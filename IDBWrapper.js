@@ -140,6 +140,18 @@
         /**
         * Создает хранилище БД
         * @param  {Object} storeData Объект данных для создания хранилища
+        *
+        * storeData = {
+        *   name: 'Название хранилища',
+        *   fields: [
+        *       {
+        *           code: 'Код поля',
+        *           uniq: true/false
+        *       },
+        *       ...
+        *   ]
+        * }
+        *
         * @return {this}
         */
         this.createStore = function (storeData) {
@@ -156,13 +168,13 @@
 
                 if (Array.isArray(storeData.fields)) {
 
-                    storeData.fields.unshift({name: 'id', uniq: true});
+                    storeData.fields.unshift({code: 'id', uniq: true});
 
                     for (i = 0; i < storeData.fields.length; i = i + 1) {
 
-                        if (typeof storeData.fields[i].name === 'string') {
+                        if (typeof storeData.fields[i].code === 'string') {
 
-                            objectStore.createIndex(storeData.fields[i].name, storeData.fields[i].name, { unique: typeof storeData.fields[i].uniq !== 'boolean' ? storeData.fields[i].uniq : false });
+                            objectStore.createIndex(storeData.fields[i].code, storeData.fields[i].code, { unique: typeof storeData.fields[i].uniq !== 'boolean' ? storeData.fields[i].uniq : false });
                         }
                     }
                 }
