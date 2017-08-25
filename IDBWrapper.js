@@ -22,6 +22,7 @@
         root.IDBWrapper = factory();
     }
 })(this, function () {
+
     var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB,
         Promise = window.Promise;
 
@@ -138,7 +139,7 @@
         };
 
         /**
-        * Создает хранилище БД
+        * Cоздание хранилища БД
         * @param  {Object} storeData Объект данных для создания хранилища
         *
         * storeData = {
@@ -152,7 +153,7 @@
         *   ]
         * }
         *
-        * @return {this}
+        * @return {undefined}
         */
         this.createStore = function (storeData) {
 
@@ -180,7 +181,58 @@
                 }
             }
 
-            return this;
+        }
+
+        /**
+        * Переподключение к БД и создание хранилища БД
+        * @param  {Object} storeData Объект данных для создания хранилища
+        *
+        * storeData = {
+        *   name: 'Название хранилища',
+        *   fields: [
+        *       {
+        *           code: 'Код поля',
+        *           uniq: true/false
+        *       },
+        *       ...
+        *   ]
+        * }
+        *
+        * @return {Promise}
+        */
+        this.ceateNewStore = function (storeData) {
+
+            return this.reconnect(function () {
+
+                this.createStore(storeData);
+
+            });
+
+            // if (!storeData.name) {
+            //
+            //     throw new Error('The name of the store is not specified to create it');
+            // }
+            //
+            // if (!this.db.objectStoreNames.contains(storeData.name)) {
+            //
+            //     var objectStore = this.db.createObjectStore(storeData.name, {keyPath: 'id', autoIncrement: true}),
+            //         i;
+            //
+            //     if (Array.isArray(storeData.fields)) {
+            //
+            //         storeData.fields.unshift({code: 'id', uniq: true});
+            //
+            //         for (i = 0; i < storeData.fields.length; i = i + 1) {
+            //
+            //             if (typeof storeData.fields[i].code === 'string') {
+            //
+            //                 objectStore.createIndex(storeData.fields[i].code, storeData.fields[i].code, { unique: typeof storeData.fields[i].uniq !== 'boolean' ? storeData.fields[i].uniq : false });
+            //             }
+            //         }
+            //     }
+            // }
+            //
+            // return this;
         };
 
         /**

@@ -34,9 +34,7 @@
 
         currentTestName = "Переподключение к БД и создание хранилища test2";
 
-        return DB.reconnect(function () {
-
-            this.createStore({
+            return DB.ceateNewStore({
                 name: 'test2',
                 fields: [{
                     code: 'country',
@@ -47,7 +45,6 @@
                 }]
             });
 
-        });
     })
     .then(function () {
 
