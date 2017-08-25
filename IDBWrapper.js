@@ -207,32 +207,6 @@
                 this.createStore(storeData);
 
             });
-
-            // if (!storeData.name) {
-            //
-            //     throw new Error('The name of the store is not specified to create it');
-            // }
-            //
-            // if (!this.db.objectStoreNames.contains(storeData.name)) {
-            //
-            //     var objectStore = this.db.createObjectStore(storeData.name, {keyPath: 'id', autoIncrement: true}),
-            //         i;
-            //
-            //     if (Array.isArray(storeData.fields)) {
-            //
-            //         storeData.fields.unshift({code: 'id', uniq: true});
-            //
-            //         for (i = 0; i < storeData.fields.length; i = i + 1) {
-            //
-            //             if (typeof storeData.fields[i].code === 'string') {
-            //
-            //                 objectStore.createIndex(storeData.fields[i].code, storeData.fields[i].code, { unique: typeof storeData.fields[i].uniq !== 'boolean' ? storeData.fields[i].uniq : false });
-            //             }
-            //         }
-            //     }
-            // }
-            //
-            // return this;
         };
 
         /**
