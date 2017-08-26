@@ -199,7 +199,7 @@
         *
         * @return {Promise}
         */
-        this.ceateNewStore = function (storeData) {
+        this.createNewStore = function (storeData) {
 
             return this.reconnect(function () {
 
