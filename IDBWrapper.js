@@ -1,11 +1,10 @@
 /**
 * @version: 1.1
 * @author: dimabresky https://bitbucket.org/dimabresky/, https://github.com/dimabresky
-* @copyright: Copyright (c) 2017 dimabresky. All rights reserved.
-* @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+* @copyright: Copyright (c) 2017 dimabresky. Все права защищены.
+* @license: MIT лицензия http://www.opensource.org/licenses/mit-license.php
 */
 
-// Follow the UMD template https://github.com/umdjs/umd/blob/master/templates/returnExportsGlobal.js
 (function (root, factory) {
 
     'use strict';
