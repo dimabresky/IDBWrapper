@@ -127,9 +127,10 @@
 
             this.onUpgradeNeeded = onUpgradeNeeded;
 
-            if (this.transaction) {
+            if (typeof this.transaction === 'IDBTransaction') {
 
                 this.transaction.abort();
+                this.transaction = null;
             }
 
             this.close();
