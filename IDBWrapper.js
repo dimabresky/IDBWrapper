@@ -127,8 +127,7 @@
 
             this.onUpgradeNeeded = onUpgradeNeeded;
 
-            if (typeof this.transaction === 'IDBTransaction') {
-
+            if (this.transaction !== null) {
                 this.transaction.abort();
                 this.transaction = null;
             }
@@ -253,7 +252,7 @@
                 throw new Error('The name of the repository is not specified when you try to connect to the repository');
             }
 
-            if (typeof this.transaction !== 'IDBTransaction') {
+            if (this.transaction === null) {
 
                 this.transaction = this.db.transaction(this.db.objectStoreNames, 'readwrite');
             }

@@ -34,7 +34,7 @@
 
         currentTestName = "Переподключение к БД и создание хранилища test2";
 
-            return DB.ceateNewStore({
+            return DB.createNewStore({
                 name: 'test2',
                 fields: [{
                     code: 'country',
@@ -170,7 +170,7 @@
             assert.ok( true, "выполнен");
         });
 
-    }).catch(function () {
+    }).catch(function (message) {
         QUnit.test( currentTestName, function( assert ) {
             assert.notOk( true, "не выполнен (" + message + ")");
         });
