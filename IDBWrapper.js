@@ -127,11 +127,6 @@
 
             this.onUpgradeNeeded = onUpgradeNeeded;
 
-            if (this.transaction !== null) {
-                this.transaction.abort();
-                this.transaction = null;
-            }
-
             this.close();
 
             return this.connect();
