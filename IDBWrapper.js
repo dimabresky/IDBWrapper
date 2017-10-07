@@ -252,12 +252,15 @@
                 throw new Error('The name of the repository is not specified when you try to connect to the repository');
             }
 
-            if (this.transaction === null) {
+            // if (this.transaction !== null) {
+            //
+            //     this.transaction.abort();
+            // }
 
-                this.transaction = this.db.transaction(this.db.objectStoreNames, 'readwrite');
-            }
+            this.transaction = this.db.transaction(name, 'readwrite');
 
             store = this.transaction.objectStore(name);
+
 
             return {
 
@@ -552,7 +555,7 @@
             }
         );
     };
-
+    
     return IDBWrapper;
 
 });
