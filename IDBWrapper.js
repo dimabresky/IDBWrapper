@@ -68,7 +68,6 @@
         this.close = function () {
 
             this.db.close();
-            this.db = null;
         };
 
         /**
@@ -88,11 +87,6 @@
                         request.onerror = function (event) {
 
                             return reject(event.target.error.message);
-                        };
-
-                        request.onblocked = function () {
-
-                            return reject('Please close all other tabs that use this application');
                         };
 
                         request.onsuccess = function (event) {
@@ -211,7 +205,6 @@
         this.deleteStore = function (name) {
 
             if (typeof name === 'string') {
-
                 this.db.deleteObjectStore(name);
             }
 

@@ -153,7 +153,7 @@
 
             DB.deleteStore('test');
             DB.deleteStore('test2');
-
+console.log(2);
             QUnit.test( currentTestName, function( assert ) {
                 assert.ok( true, "выполнен" );
             });
@@ -164,6 +164,7 @@
         currentTestName = "Удаление базыданных DBTEST";
 
         return DB.deleteDatabase("DBTEST");
+
     }).then(function () {
 
         QUnit.test( currentTestName, function( assert ) {
