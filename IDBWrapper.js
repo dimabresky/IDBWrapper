@@ -307,7 +307,7 @@
                  */
                 where: function (index) {
 
-                    var keyRange = null, deforder = 'nextunique', objIndex = store.index(index);
+                    var keyRange = null, deforder = 'next', objIndex = store.index(index);
 
                     return {
 
@@ -372,7 +372,7 @@
                          */
                         order: function (order) {
 
-                            deforder = order === 'desc' ? 'prevunique' : 'nextunique';
+                            deforder = order === 'desc' ? "prev" : "next";
 
                             return this;
 
@@ -404,9 +404,9 @@
                                             data.push(value);
 
                                             cursor.advance(1);
+                                        } else {
+                                            return resolve(data);
                                         }
-
-                                        return resolve(data);
                                     };
 
                                     cursorResult.onerror = function (event) {
