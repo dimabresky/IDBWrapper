@@ -200,15 +200,16 @@
         /**
          * Удаление хранилища
          * @param  {String} name Имя хранилища
-         * @return {this}
+         * @return {Promise}
          */
         this.deleteStore = function (name) {
 
-            if (typeof name === 'string') {
-                this.db.deleteObjectStore(name);
-            }
-
-            return this;
+            var _this = this;
+            return _this.reconnect(function () {
+                if (typeof name === 'string') {
+                    _this.db.deleteObjectStore(name);
+                }
+            });
         };
 
         /**

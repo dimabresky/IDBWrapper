@@ -147,19 +147,25 @@
             assert.ok( true, "выполнен" );
         });
 
-        currentTestName = "Удаление хранилищ test и test2";
+        currentTestName = "Удаление хранилища test";
 
-        return DB.reconnect(function () {
+        return DB.deleteStore('test');
 
-            DB.deleteStore('test');
-            DB.deleteStore('test2');
-console.log(2);
-            QUnit.test( currentTestName, function( assert ) {
-                assert.ok( true, "выполнен" );
-            });
-
-        });
     }).then(function () {
+
+        QUnit.test( currentTestName, function( assert ) {
+            assert.ok( true, "выполнен" );
+        });
+
+        currentTestName = "Удаление хранилища test2";
+
+        return DB.deleteStore('test2');
+        
+    }).then(function () {
+
+        QUnit.test( currentTestName, function( assert ) {
+            assert.ok( true, "выполнен" );
+        });
 
         currentTestName = "Удаление базыданных DBTEST";
 
